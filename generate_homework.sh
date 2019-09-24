@@ -1,6 +1,5 @@
 #! /bin/bash
-source utilities.sh
-source index.sh
+. utilities.sh 
 #needs no. of weeks as argument ./generate_homework.sh [WEEKS]
 
 #from setup date calculate weeks 

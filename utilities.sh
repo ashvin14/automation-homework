@@ -1,27 +1,27 @@
 
 
-create_course_directory(){
-   SUBJECT=$1
+create_course_directory() {
+   local SUBJECT=$1
     if [ ! -d "../../${SUBJECT}-homework/" ]
     then
     `mkdir ../../${SUBJECT}-homework/`
     fi
 }
 
-create_database(){
+create_database() {
     `touch data.csv`
     echo ${SETUP_DATE} > "data.csv"
     for index in 0 1
     do
-        echo ${index},${SUBJECTS[$index]},${DAYS[$index]},$no_of_weeks >> "data.csv"
+        echo ${index},${SUBJECTS[$index]},${DAYS[$index]},1 >> "data.csv"
     done
 } 
 
 
 
-create_homework_directory(){
- SUBJECT=$1
- WEEK=$2
+create_homework_directory() {
+ local SUBJECT=$1
+ local WEEK=$2
  #for some reason arguments are not passing
  
  if [ ! -d "../../${SUBJECT}-homework/week-${WEEK}/" ]
@@ -43,6 +43,5 @@ week_diff() {
     d2=$(date -d "$2" +%s)
 
     no_of_weeks=$(( (d1 - d2)/(86400*7) )) 
-    echo $no_of_weeks
 }
 
